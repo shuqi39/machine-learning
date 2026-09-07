@@ -133,7 +133,7 @@ XG Boost 算法，引入刻意训练的思想，提高上一颗决策树的错�
 当数据集是很少的正样本和大量负样本时，通常选择异常检测算法，相反则是监督学习  
 负样本：y=0的正常样本  
 pli.hist(x),统计数据的分布情况，并用矩形条（柱子）直观地展示出来  
-协同过滤（Collaborative Filtering）中用于学习特征矩阵（X）的代价函数（Cost Function）
+协同过滤（Collaborative Filtering）中用于学习特征矩阵（X）的代价函数（Cost Function）  
 J(x(1), x(2), … , x(n_m))= 1/2 ∑ i = 1 to n_m ∑ j:r(i, j)= 1(w(j)⋅ x(i)+ b(j)− y(i , j))^2+ λ/2 ∑ i = 1 to n_m ∑ k = 1 to n(x_k(i))^2 
 n_m 电影（或物品）的总数量  
 r(i,j)=1 表示用户 j 对电影 i 有过评分（即该数据存在） 
@@ -141,3 +141,11 @@ y^(i,j) 用户 j 对电影 i 给出的实际评分（标签值）
 x^(i) 电影 i 的特征向量（长度为 n），是需要学习的参数
 w^(j) 用户 j 的参数向量（权重），与特征向量维度相同
 b(j) 用户 j 的偏置项（标量）
+
+9.7：二元应用成本函数（Cost function for binary application）  
+Previous cost function (之前的成本函数)：
+
+1/2 ∑(i , j):r(i , j)= 1((w^(j)⋅ x^(i)+ b^(j))− y^(i , j))^2+ λ/2 ∑ i= 1 to n_m ∑ k= 1 to n(x_k^(i))^2+ λ/2 ∑ j= 1 to n_u ∑ k= 1 to n(w_k^(j))^2  
+Loss for binary labels (二元标签的损失函数)：y(i,j) :f_(w,b,x)(x)=g(w^(j)⋅x^(i) +b^(j))  
+Loss for single example - 单个样本的损失:L(f_(w,b,x)(x),y^(i,j))=−y^(i,j)log(f_(w,b,x)(x))−(1−y^(i,j))log(1−f_(w,b,x)(x))
+最终的成本函数：J(w,b,x)=(i,j):r(i,j)=1 ∑ L(f_(w,b,x)(x),y^(i,j))
