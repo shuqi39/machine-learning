@@ -149,3 +149,7 @@ Previous cost function (之前的成本函数)：
 Loss for binary labels (二元标签的损失函数)：y(i,j) :f_(w,b,x)(x)=g(w^(j)⋅x^(i) +b^(j))  
 Loss for single example - 单个样本的损失:L(f_(w,b,x)(x),y^(i,j))=−y^(i,j)log(f_(w,b,x)(x))−(1−y^(i,j))log(1−f_(w,b,x)(x))
 最终的成本函数：J(w,b,x)=(i,j):r(i,j)=1 ∑ L(f_(w,b,x)(x),y^(i,j))
+
+9.8:基于神经网络的协同过滤（Neural Collaborative Filtering）的代价函数，具体如下：
+主公式： J= ∑(i, j):r(i, j)= 1(v_u^(j)⋅ v_m^(i)− y(i, j))^2+ NN regularization term
+NN regularization term：神经网络正则化项（图中以文字代替了具体公式，通常为 λ/2 ∑ ∥ w ∥^2
